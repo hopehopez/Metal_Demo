@@ -5,9 +5,13 @@
 //  Created by zsq on 2020/8/21.
 //  Copyright © 2020 zsq. All rights reserved.
 //
+/*
+ 介绍:
+ 头文件包含了 Metal shaders 与C/OBJC 源之间共享的类型和枚举常数
+*/
+//#import <Foundation/Foundation.h>
+#include <simd/simd.h>
 
-#ifndef ShaderTypes_h
-#define ShaderTypes_h
 
 // 缓存区索引值 共享与 shader 和 C 代码 为了确保Metal Shader缓存区索引能够匹配 Metal API Buffer 设置的集合调用
 typedef enum VertexInputIndex
@@ -29,4 +33,4 @@ typedef struct
     // RGBA颜色
     vector_float4 color;
 } Vertex;
-#endif /* ShaderTypes_h */
+

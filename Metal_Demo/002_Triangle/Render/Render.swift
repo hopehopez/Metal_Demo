@@ -16,7 +16,7 @@ var commandQueue: MTLCommandQueue?
      /// 我们的渲染管道有顶点着色器和片元着色器 它们存储在.metal shader 文件中
     var pipelineState: MTLRenderPipelineState!
     //当前视图大小,这样我们才可以在渲染通道使用这个视图
-    var viewportSize: vector_int2!
+    var viewportSize: vector_int2! = vector_int2(0, 0)
     convenience init(mtkView: MTKView) {
         self.init()
         
@@ -66,11 +66,10 @@ var commandQueue: MTLCommandQueue?
     func draw(in view: MTKView) {
         
         //1. 顶点数据/颜色数据
-        let triangleVertices = [Vertex(position: vector_float4(0.5, -0.25, 0.0, 1.0), color: vector_float4(1, 0, 0, 1)),
+        let triangleVertices = [Vertex(position: vector_float4(0.5, -0.25, 0.0, 1.0), color:                              vector_float4(1, 0, 0, 1)),
                                 Vertex(position: vector_float4(-0.5, -0.25, 0.0, 1.0), color: vector_float4(0, 1, 0, 1)),
                                 Vertex(position: vector_float4(0.0, -0.25, 0.0, 1.0), color: vector_float4(0, 0, 1, 1))
-                                
-        ]
+                                ]
          
         //2.为当前渲染的每个渲染传递创建一个新的命令缓冲区
         let commandBuffer = commandQueue?.makeCommandBuffer()
@@ -104,13 +103,14 @@ var commandQueue: MTLCommandQueue?
             //   1) 指向要传递给着色器的内存的指针
             //   2) 我们想要传递的数据的内存大小
             //   3)一个整数索引，它对应于我们的“vertexShader”函数中的缓冲区属性限定符的索引。
-            renderDecoder?.setVertexBytes(triangleVertices, length: MemoryLayout.size(ofValue:triangleVertices), index: VertexInputIndex.VertexInputIndexVertices.rawValue)
+            renderDecoder?.setVertexBytes(triangleVertices, length:  MemoryLayout<Vertex>.size*triangleVertices.count, index:
+                Int(VertexInputIndexVertices.rawValue))
             
             //viewPortSize 数据
             //1) 发送到顶点着色函数中,视图大小
             //2) 视图大小内存空间大小
             //3) 对应的索引
-            renderDecoder?.setVertexBytes(&viewportSize, length: MemoryLayout.size(ofValue: viewportSize), index: VertexInputIndex.VertexInputIndexViewportSize.rawValue)
+            renderDecoder?.setVertexBytes(&viewportSize, length: MemoryLayout.size(ofValue: viewportSize), index: Int(VertexInputIndexViewportSize.rawValue))
             
             
             //8.画出三角形的3个顶点
@@ -127,7 +127,7 @@ var commandQueue: MTLCommandQueue?
                     MTLPrimitiveTypeTriangleStrip = 4, 三角型扇
                     */
             
-            renderDecoder?.drawPrimitives(type: .triangleStrip, vertexStart: 0, vertexCount: 3)
+            renderDecoder?.drawPrimitives(type: .triangle, vertexStart: 0, vertexCount: 3)
             
             //9.表示已该编码器生成的命令都已完成,并且从NTLCommandBuffer中分离
             renderDecoder?.endEncoding()
