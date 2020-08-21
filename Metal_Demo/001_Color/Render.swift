@@ -20,8 +20,12 @@ class Render: NSObject, MTKViewDelegate {
     var device: MTLDevice?
     var commandQueue: MTLCommandQueue?
     
+    
+    //1. 增加颜色/减小颜色的 标记
     static var growing = true
+     //2.颜色通道值(0~3)
     static var primaryChannel = 0
+    //3.颜色通道数组colorChannels(颜色值)
     static var colorChannels = [1.0, 0.0, 0.0, 1.0]
    
     convenience init(mtkView: MTKView) {
@@ -34,25 +38,37 @@ class Render: NSObject, MTKViewDelegate {
     }
     
     func makeFancyColo() -> Color {
-        
+         //4.颜色调整步长
         let DynamicColorRate = 0.015
+        
+         //5.判断
         if Render.growing {
+            
+            //动态信道索引 (1,2,3,0)通道间切换
             let dynamicChannelIndex = (Render.primaryChannel+1)%3
+            //修改对应通道的颜色值 调整0.015
             Render.colorChannels[dynamicChannelIndex] += DynamicColorRate
+             //当颜色通道对应的颜色值 = 1.0
             if Render.colorChannels[dynamicChannelIndex] > 1.0 {
+                //设置为NO
                 Render.growing = false
+                //将颜色通道修改为动态颜色通道
                 Render.primaryChannel = dynamicChannelIndex
             }
         } else {
+            //获取动态颜色通道
             let dynamicChannelIndex = (Render.primaryChannel+2)%3
+             //将当前颜色的值 减去0.015
             Render.colorChannels[dynamicChannelIndex] -= DynamicColorRate
-            if Render.colorChannels[dynamicChannelIndex] <= 1.0 {
+            //当颜色值小于等于0.0
+            if Render.colorChannels[dynamicChannelIndex] <= 0.0 {
+                //又调整为颜色增加
                 Render.growing = true
             }
         }
-        
+         //创建颜色
         let color = Color.init(red: Render.colorChannels[0], green: Render.colorChannels[1], blue: Render.colorChannels[2], alpha: Render.colorChannels[3])
-        
+         //返回颜色
         return color
         
     }
