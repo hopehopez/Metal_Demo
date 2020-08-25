@@ -22,7 +22,6 @@
 		1B60475824EF757E0000E2FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B60475624EF757E0000E2FF /* LaunchScreen.storyboard */; };
 		1B60475F24EF75A30000E2FF /* Render.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B60475E24EF75A30000E2FF /* Render.swift */; };
 		1B60476324EF77610000E2FF /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 1B60476224EF77610000E2FF /* Shaders.metal */; };
-		1B68BC9924F3B65600D40AFB /* MyRender.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B68BC9824F3B65600D40AFB /* MyRender.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,8 +46,6 @@
 		1B60476224EF77610000E2FF /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
 		1B60476624EFA9A90000E2FF /* ShaderTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShaderTypes.h; sourceTree = "<group>"; };
 		1B60476724EFC8410000E2FF /* 002_Triangle-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "002_Triangle-Bridging-Header.h"; sourceTree = "<group>"; };
-		1B68BC9724F3B65600D40AFB /* MyRender.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyRender.h; sourceTree = "<group>"; };
-		1B68BC9824F3B65600D40AFB /* MyRender.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyRender.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,8 +119,6 @@
 			isa = PBXGroup;
 			children = (
 				1B60475E24EF75A30000E2FF /* Render.swift */,
-				1B68BC9724F3B65600D40AFB /* MyRender.h */,
-				1B68BC9824F3B65600D40AFB /* MyRender.m */,
 				1B60476224EF77610000E2FF /* Shaders.metal */,
 				1B60476624EFA9A90000E2FF /* ShaderTypes.h */,
 			);
@@ -245,7 +240,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B60476324EF77610000E2FF /* Shaders.metal in Sources */,
-				1B68BC9924F3B65600D40AFB /* MyRender.m in Sources */,
 				1B60475024EF757C0000E2FF /* ViewController.swift in Sources */,
 				1B60474C24EF757C0000E2FF /* AppDelegate.swift in Sources */,
 				1B60474E24EF757C0000E2FF /* SceneDelegate.swift in Sources */,

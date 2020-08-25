@@ -23,7 +23,7 @@ class Render: NSObject, MTKViewDelegate {
     
     //1. 增加颜色/减小颜色的 标记
     static var growing = true
-     //2.颜色通道值(0~3)
+    //2.颜色通道值(0~3)
     static var primaryChannel = 0
     //3.颜色通道数组colorChannels(颜色值)
     static var colorChannels = [1.0, 0.0, 0.0, 1.0]
