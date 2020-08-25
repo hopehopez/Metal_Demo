@@ -24,8 +24,7 @@ class Render: NSObject, MTKViewDelegate {
         //1.获取GPU 设备
         device = mtkView.device
         
-        //5.创建命令队列
-        commandQueue = device!.makeCommandQueue()
+        
         
         //2.在项目中加载所有的(.metal)着色器文件
         // 从bundle中获取.metal文件
@@ -49,7 +48,8 @@ class Render: NSObject, MTKViewDelegate {
         pipelineState = try! device?.makeRenderPipelineState(descriptor: pipelineStateDescriptor)
         
         
-       
+       //5.创建命令队列
+       commandQueue = device!.makeCommandQueue()
     }
     
     
@@ -63,10 +63,10 @@ class Render: NSObject, MTKViewDelegate {
     func draw(in view: MTKView) {
         
         //1. 顶点数据/颜色数据
-        let triangleVertices = [Vertex(position: [+0.5, -0.25, 0.0, 1.0], color: [1.0, 0.0, 0.0,
+        let triangleVertices = [ZVertex(position: [0.5, -0.25, 0.0, 1.0], color: [1.0, 0.0, 0.0,
                                     1.0]),
-                                Vertex(position: [-0.5, -0.25, 0.0, 1.0], color: [0.0, 1.0, 0.0, 1.0]),
-                                Vertex(position: [-0.0, -0.25, 0.0, 1.0], color: [0.0, 0.0, 1.0, 1.0])
+                                ZVertex(position: [-0.5, -0.25, 0.0, 1.0], color: [0.0, 1.0, 0.0, 1.0]),
+                                ZVertex(position: [0, 0.25, 0.0, 1.0], color: [0.0, 0.0, 1.0, 1.0])
         ]
         
         //2.为当前渲染的每个渲染传递创建一个新的命令缓冲区
@@ -75,7 +75,7 @@ class Render: NSObject, MTKViewDelegate {
         
         //3. MTLRenderPassDescriptor:一组渲染目标，用作渲染通道生成的像素的输出目标。
         if let renderPassDescriptor = view.currentRenderPassDescriptor {
-            renderPassDescriptor.colorAttachments[0].clearColor = MTLClearColorMake(0.48, 0.74, 0.92, 1)
+            
             //4.创建渲染命令编码器,这样我们才可以渲染到something
             let renderEncoder = commandBuffer?.makeRenderCommandEncoder(descriptor: renderPassDescriptor)
             //渲染器名称
@@ -102,8 +102,8 @@ class Render: NSObject, MTKViewDelegate {
             //   2) 我们想要传递的数据的内存大小
             //   3)一个整数索引，它对应于我们的“vertexShader”函数中的缓冲区属性限定符的索引。
             renderEncoder?.setVertexBytes(triangleVertices,
-                                          length:  MemoryLayout<Vertex>.size*triangleVertices.count,
-                                          index: Int(VertexInputIndexVertices.rawValue))
+                                          length:  MemoryLayout<ZVertex>.size*triangleVertices.count,
+                                          index: Int(ZVertexInputIndexVertices.rawValue))
             
             //viewPortSize 数据
             //1) 发送到顶点着色函数中,视图大小
@@ -111,7 +111,7 @@ class Render: NSObject, MTKViewDelegate {
             //3) 对应的索引
             renderEncoder?.setVertexBytes(&viewportSize,
                                           length: MemoryLayout.size(ofValue: viewportSize),
-                                          index: Int(VertexInputIndexViewportSize.rawValue))
+                                          index: Int(ZVertexInputIndexViewportSize.rawValue))
             
             
             //8.画出三角形的3个顶点
@@ -127,7 +127,7 @@ class Render: NSObject, MTKViewDelegate {
              MTLPrimitiveTypeTriangle = 3,  三角形
              MTLPrimitiveTypeTriangleStrip = 4, 三角型扇
              */
-            
+        
             renderEncoder?.drawPrimitives(type: .triangle, vertexStart: 0, vertexCount: 3)
             
             //9.表示已该编码器生成的命令都已完成,并且从NTLCommandBuffer中分离
@@ -135,7 +135,6 @@ class Render: NSObject, MTKViewDelegate {
             
             //10.一旦框架缓冲区完成，使用当前可绘制的进度表
             commandBuffer?.present(view.currentDrawable!)
-            
             
         }
         

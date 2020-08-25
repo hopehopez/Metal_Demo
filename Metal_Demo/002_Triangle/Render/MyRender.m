@@ -90,7 +90,7 @@
 - (void)drawInMTKView:(nonnull MTKView *)view
 {
     //1. 顶点数据/颜色数据
-    static const Vertex triangleVertices[] =
+    static const ZVertex triangleVertices[] =
     {
         //顶点,    RGBA 颜色值
         { {  0.5, -0.25, 0.0, 1.0 }, { 1, 0, 0, 1 } },
@@ -140,7 +140,7 @@
 
         [renderEncoder setVertexBytes:triangleVertices
                                length:sizeof(triangleVertices)
-                              atIndex:VertexInputIndexVertices];
+                              atIndex:ZVertexInputIndexVertices];
 
         //viewPortSize 数据
         //1) 发送到顶点着色函数中,视图大小
@@ -148,7 +148,7 @@
         //3) 对应的索引
         [renderEncoder setVertexBytes:&_viewportSize
                                length:sizeof(_viewportSize)
-                              atIndex:VertexInputIndexViewportSize];
+                              atIndex:ZVertexInputIndexViewportSize];
 
        
         
@@ -180,6 +180,5 @@
     //11.最后,在这里完成渲染并将命令缓冲区推送到GPU
     [commandBuffer commit];
 }
-
 
 @end

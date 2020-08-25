@@ -14,13 +14,13 @@
 
 
 // 缓存区索引值 共享与 shader 和 C 代码 为了确保Metal Shader缓存区索引能够匹配 Metal API Buffer 设置的集合调用
-typedef enum VertexInputIndex
+typedef enum ZVertexInputIndex
 {
     //顶点
-    VertexInputIndexVertices     = 0,
+    ZVertexInputIndexVertices     = 0,
     //视图大小
-    VertexInputIndexViewportSize = 1,
-} VertexInputIndex;
+    ZVertexInputIndexViewportSize = 1,
+} ZVertexInputIndex;
 
 
 //结构体: 顶点/颜色值
@@ -32,5 +32,5 @@ typedef struct
 
     // RGBA颜色
     vector_float4 color;
-} Vertex;
+} ZVertex;
 

@@ -31,6 +31,7 @@ class ViewController: UIViewController {
 
         //6.设置MTKView 的代理(由CCRender来实现MTKView 的代理方法)
         view.delegate = render
+        
 //        myrender = MyRender.init(metalKitView: view)
 //        myrender?.mtkView(view, drawableSizeWillChange: view.drawableSize)
 //        view.delegate = myrender
