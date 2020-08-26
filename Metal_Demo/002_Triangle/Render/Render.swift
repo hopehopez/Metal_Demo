@@ -24,8 +24,6 @@ class Render: NSObject, MTKViewDelegate {
         //1.获取GPU 设备
         device = mtkView.device
         
-        
-        
         //2.在项目中加载所有的(.metal)着色器文件
         // 从bundle中获取.metal文件
         let defaultLibrary = device?.makeDefaultLibrary()
