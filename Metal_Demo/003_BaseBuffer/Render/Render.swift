@@ -32,7 +32,7 @@ class Render: NSObject, MTKViewDelegate {
     
     func loadMetal(mtkView: MTKView) {
         //1.设置绘制纹理的像素格式
-        mtkView.colorPixelFormat = .rgba8Unorm_srgb
+        mtkView.colorPixelFormat = .bgra8Unorm_srgb
         
         //2.从项目中加载所以的.metal着色器文件
         let defaultLibrary = device?.makeDefaultLibrary()
@@ -61,7 +61,7 @@ class Render: NSObject, MTKViewDelegate {
     }
     
     func generateVertexData() -> [ZVertex]{
-        var quadVertices = [ZVertex(position: [-20, 20], color: [1, 0, 0, 1]),
+        let quadVertices = [ZVertex(position: [-20, 20], color: [1, 0, 0, 1]),
                             ZVertex(position: [20, 20], color: [1, 0, 0, 1]),
                             ZVertex(position: [-20, -20], color: [1, 0, 0, 1]),
                             
@@ -80,8 +80,6 @@ class Render: NSObject, MTKViewDelegate {
          //四边形间距
         let QUAD_SPACING:Float = 50.0
         
-        //数据大小 = 单个四边形大小 * 行 * 列
-        let dataSize = MemoryLayout<ZVertex>.size * NUM_VERTICES_PER_QUAD * NUM_COLUMNS * NUM_ROWS
         
         //2. 开辟空间
         var vertices = [ZVertex]()
@@ -96,9 +94,10 @@ class Render: NSObject, MTKViewDelegate {
                 
                 for index in 0..<NUM_VERTICES_PER_QUAD {
                     var vertex = quadVertices[index]
+                    vertex.position += upperLeftPosition
                     let newVertex = ZVertex(position: vertex.position, color: vertex.color)
                     vertices.append(newVertex)
-                    vertex.position += upperLeftPosition
+                    print(vertex.position)
                 }
 
             }
@@ -106,7 +105,7 @@ class Render: NSObject, MTKViewDelegate {
         return vertices
     }
     
-    
+    //每当视图改变方向或调整大小时调用
     func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
         // 保存可绘制的大小，因为当我们绘制时，我们将把这些值传递给顶点着色器
         viewportSize.x = UInt32(size.width)
@@ -114,6 +113,62 @@ class Render: NSObject, MTKViewDelegate {
         
     }
     
+    //每当视图需要渲染帧时调用
     func draw(in view: MTKView) {
+        
+        //1.为当前渲染的每个渲染传递创建一个新的命令缓冲区
+        let commandBuffer = commandQueue?.makeCommandBuffer()
+        //指定缓存区名称
+        commandBuffer?.label = "MyCommandBuffer"
+        
+        //2. MTLRenderPassDescriptor:一组渲染目标，用作渲染通道生成的像素的输出目标。
+        if let renderPassDescriptor = view.currentRenderPassDescriptor {
+            
+            //创建渲染命令编码器,这样我们才可以渲染到something
+            let renderEncoder = commandBuffer?.makeRenderCommandEncoder(descriptor: renderPassDescriptor)
+            renderEncoder?.label = "MyRenderEncoder"
+            
+            //3.设置我们绘制的可绘制区域
+            renderEncoder?.setViewport(MTLViewport(originX: 0, originY: 0, width: Double(viewportSize.x), height: Double(viewportSize.y), znear: -1.0, zfar: 1.0))
+            
+            //4. 设置渲染管道
+            renderEncoder?.setRenderPipelineState(pipelineState)
+            
+            //5.我们调用-[MTLRenderCommandEncoder setVertexBuffer:offset:atIndex:] 为了从我们的OC代码找发送数据预加载的MTLBuffer 到我们的Metal 顶点着色函数中
+            /* 这个调用有3个参数
+                1) buffer - 包含需要传递数据的缓冲对象
+                2) offset - 它们从缓冲器的开头字节偏移，指示“顶点指针”指向什么。在这种情况下，我们通过0，所以数据一开始就被传递下来.偏移量
+                3) index - 一个整数索引，对应于我们的“vertexShader”函数中的缓冲区属性限定符的索引。注意，此参数与 -[MTLRenderCommandEncoder setVertexBytes:length:atIndex:] “索引”参数相同。
+             */
+            
+            //将_vertexBuffer 设置到顶点缓存区中
+            renderEncoder?.setVertexBuffer(vertexBuffer, offset: 0, index: Int(ZVertexInputIndexVertices.rawValue))
+            
+             //将 _viewportSize 设置到顶点缓存区绑定点设置数据
+            renderEncoder?.setVertexBytes(&viewportSize, length: MemoryLayout<MTLViewport>.size, index: Int(ZVertexInputIndexViewportSize.rawValue))
+            
+            //6.开始绘图
+            // @method drawPrimitives:vertexStart:vertexCount:
+            //@brief 在不使用索引列表的情况下,绘制图元
+            //@param 绘制图形组装的基元类型
+            //@param 从哪个位置数据开始绘制,一般为0
+            //@param 每个图元的顶点个数,绘制的图型顶点数量
+            /*
+             MTLPrimitiveTypePoint = 0, 点
+             MTLPrimitiveTypeLine = 1, 线段
+             MTLPrimitiveTypeLineStrip = 2, 线环
+             MTLPrimitiveTypeTriangle = 3,  三角形
+             MTLPrimitiveTypeTriangleStrip = 4, 三角型扇
+             */
+            renderEncoder?.drawPrimitives(type: .triangle, vertexStart: 0, vertexCount: numVertices)
+            
+            //7表示已该编码器生成的命令都已完成,并且从NTLCommandBuffer中分离
+            renderEncoder?.endEncoding()
+            
+            //8.一旦框架缓冲区完成，使用当前可绘制的进度表
+            commandBuffer?.present(view.currentDrawable!)
+            
+        }
+        commandBuffer?.commit()
     }
 }

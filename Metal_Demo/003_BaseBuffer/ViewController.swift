@@ -17,6 +17,7 @@ class ViewController: UIViewController {
         let mtkView = view as! MTKView
         mtkView.device = MTLCreateSystemDefaultDevice()
         render = Render(mtkView: mtkView)
+        render?.mtkView(mtkView, drawableSizeWillChange: mtkView.drawableSize)
         mtkView.delegate = render
         
     }

@@ -37,7 +37,7 @@ class Render: NSObject, MTKViewDelegate {
         commandQueue = device!.makeCommandQueue()
     }
     
-    func makeFancyColo() -> Color {
+    func makeFancyColor() -> Color {
          //4.颜色调整步长
         let DynamicColorRate = 0.015
         
@@ -81,7 +81,7 @@ class Render: NSObject, MTKViewDelegate {
     func draw(in view: MTKView) {
         
          //1. 获取颜色值
-        let color = makeFancyColo()
+        let color = makeFancyColor()
         
         //2. 设置view的clearColor
         view.clearColor = MTLClearColorMake(color.red, color.green, color.blue, color.alpha)
