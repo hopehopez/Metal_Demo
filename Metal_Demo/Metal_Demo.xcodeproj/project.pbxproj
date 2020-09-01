@@ -30,6 +30,15 @@
 		1BBCC7B124F8A418005FD640 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BBCC7AF24F8A418005FD640 /* LaunchScreen.storyboard */; };
 		1BBCC7B824F8A44E005FD640 /* Render.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBCC7B724F8A44E005FD640 /* Render.swift */; };
 		1BBCC7BB24F8A46D005FD640 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 1BBCC7BA24F8A46D005FD640 /* Shaders.metal */; };
+		7CB7B96A24FE78B800352BFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB7B96924FE78B800352BFD /* AppDelegate.swift */; };
+		7CB7B96C24FE78B800352BFD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB7B96B24FE78B800352BFD /* SceneDelegate.swift */; };
+		7CB7B96E24FE78B800352BFD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB7B96D24FE78B800352BFD /* ViewController.swift */; };
+		7CB7B97124FE78B800352BFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CB7B96F24FE78B800352BFD /* Main.storyboard */; };
+		7CB7B97324FE78BA00352BFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CB7B97224FE78BA00352BFD /* Assets.xcassets */; };
+		7CB7B97624FE78BA00352BFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CB7B97424FE78BA00352BFD /* LaunchScreen.storyboard */; };
+		7CB7B97D24FE794D00352BFD /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 7CB7B97C24FE794D00352BFD /* Shaders.metal */; };
+		7CB7B98424FE87DE00352BFD /* Render.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB7B98324FE87DE00352BFD /* Render.swift */; };
+		7CB7B98624FE9D4800352BFD /* ZImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB7B98524FE9D4800352BFD /* ZImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +75,19 @@
 		1BBCC7B924F8A461005FD640 /* ShaderTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShaderTypes.h; sourceTree = "<group>"; };
 		1BBCC7BA24F8A46D005FD640 /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
 		1BC0717624FCF633004CCAF2 /* 003_BaseBuffer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "003_BaseBuffer-Bridging-Header.h"; sourceTree = "<group>"; };
+		7CB7B96724FE78B800352BFD /* 004_TgaTexture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 004_TgaTexture.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7CB7B96924FE78B800352BFD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7CB7B96B24FE78B800352BFD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		7CB7B96D24FE78B800352BFD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7CB7B97024FE78B800352BFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7CB7B97224FE78BA00352BFD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7CB7B97524FE78BA00352BFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7CB7B97724FE78BA00352BFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7CB7B97C24FE794D00352BFD /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
+		7CB7B97E24FE796A00352BFD /* ShaderTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShaderTypes.h; sourceTree = "<group>"; };
+		7CB7B97F24FE798800352BFD /* 004_TgaTexture-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "004_TgaTexture-Bridging-Header.h"; sourceTree = "<group>"; };
+		7CB7B98324FE87DE00352BFD /* Render.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Render.swift; sourceTree = "<group>"; };
+		7CB7B98524FE9D4800352BFD /* ZImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +112,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7CB7B96424FE78B800352BFD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -99,6 +128,7 @@
 				1B60473024EE78230000E2FF /* 001_Color */,
 				1B60474A24EF757C0000E2FF /* 002_Triangle */,
 				1BBCC7A324F8A416005FD640 /* 003_BaseBuffer */,
+				7CB7B96824FE78B800352BFD /* 004_TgaTexture */,
 				1B60471324EE73380000E2FF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -109,6 +139,7 @@
 				1B60472F24EE78230000E2FF /* 001_Color.app */,
 				1B60474924EF757C0000E2FF /* 002_Triangle.app */,
 				1BBCC7A224F8A416005FD640 /* 003_BaseBuffer.app */,
+				7CB7B96724FE78B800352BFD /* 004_TgaTexture.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -180,6 +211,33 @@
 			path = Render;
 			sourceTree = "<group>";
 		};
+		7CB7B96824FE78B800352BFD /* 004_TgaTexture */ = {
+			isa = PBXGroup;
+			children = (
+				7CB7B96924FE78B800352BFD /* AppDelegate.swift */,
+				7CB7B96B24FE78B800352BFD /* SceneDelegate.swift */,
+				7CB7B96D24FE78B800352BFD /* ViewController.swift */,
+				7CB7B97B24FE791000352BFD /* Render */,
+				7CB7B96F24FE78B800352BFD /* Main.storyboard */,
+				7CB7B97224FE78BA00352BFD /* Assets.xcassets */,
+				7CB7B97424FE78BA00352BFD /* LaunchScreen.storyboard */,
+				7CB7B97724FE78BA00352BFD /* Info.plist */,
+			);
+			path = 004_TgaTexture;
+			sourceTree = "<group>";
+		};
+		7CB7B97B24FE791000352BFD /* Render */ = {
+			isa = PBXGroup;
+			children = (
+				7CB7B98324FE87DE00352BFD /* Render.swift */,
+				7CB7B97C24FE794D00352BFD /* Shaders.metal */,
+				7CB7B98524FE9D4800352BFD /* ZImage.swift */,
+				7CB7B97E24FE796A00352BFD /* ShaderTypes.h */,
+				7CB7B97F24FE798800352BFD /* 004_TgaTexture-Bridging-Header.h */,
+			);
+			path = Render;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -234,13 +292,30 @@
 			productReference = 1BBCC7A224F8A416005FD640 /* 003_BaseBuffer.app */;
 			productType = "com.apple.product-type.application";
 		};
+		7CB7B96624FE78B800352BFD /* 004_TgaTexture */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7CB7B97A24FE78BA00352BFD /* Build configuration list for PBXNativeTarget "004_TgaTexture" */;
+			buildPhases = (
+				7CB7B96324FE78B800352BFD /* Sources */,
+				7CB7B96424FE78B800352BFD /* Frameworks */,
+				7CB7B96524FE78B800352BFD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = 004_TgaTexture;
+			productName = 004_TgaTexture;
+			productReference = 7CB7B96724FE78B800352BFD /* 004_TgaTexture.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		1B60470A24EE73380000E2FF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1160;
+				LastSwiftUpdateCheck = 1150;
 				LastUpgradeCheck = 1160;
 				ORGANIZATIONNAME = zsq;
 				TargetAttributes = {
@@ -254,6 +329,10 @@
 					1BBCC7A124F8A416005FD640 = {
 						CreatedOnToolsVersion = 11.6;
 						LastSwiftMigration = 1160;
+					};
+					7CB7B96624FE78B800352BFD = {
+						CreatedOnToolsVersion = 11.5;
+						LastSwiftMigration = 1150;
 					};
 				};
 			};
@@ -273,6 +352,7 @@
 				1B60472E24EE78230000E2FF /* 001_Color */,
 				1B60474824EF757C0000E2FF /* 002_Triangle */,
 				1BBCC7A124F8A416005FD640 /* 003_BaseBuffer */,
+				7CB7B96624FE78B800352BFD /* 004_TgaTexture */,
 			);
 		};
 /* End PBXProject section */
@@ -305,6 +385,16 @@
 				1BBCC7B124F8A418005FD640 /* LaunchScreen.storyboard in Resources */,
 				1BBCC7AE24F8A418005FD640 /* Assets.xcassets in Resources */,
 				1BBCC7AC24F8A416005FD640 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7CB7B96524FE78B800352BFD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7CB7B97624FE78BA00352BFD /* LaunchScreen.storyboard in Resources */,
+				7CB7B97324FE78BA00352BFD /* Assets.xcassets in Resources */,
+				7CB7B97124FE78B800352BFD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +433,19 @@
 				1BBCC7A724F8A416005FD640 /* SceneDelegate.swift in Sources */,
 				1BBCC7B824F8A44E005FD640 /* Render.swift in Sources */,
 				1BBCC7BB24F8A46D005FD640 /* Shaders.metal in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7CB7B96324FE78B800352BFD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7CB7B98424FE87DE00352BFD /* Render.swift in Sources */,
+				7CB7B97D24FE794D00352BFD /* Shaders.metal in Sources */,
+				7CB7B96E24FE78B800352BFD /* ViewController.swift in Sources */,
+				7CB7B96A24FE78B800352BFD /* AppDelegate.swift in Sources */,
+				7CB7B98624FE9D4800352BFD /* ZImage.swift in Sources */,
+				7CB7B96C24FE78B800352BFD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,6 +496,22 @@
 			isa = PBXVariantGroup;
 			children = (
 				1BBCC7B024F8A418005FD640 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		7CB7B96F24FE78B800352BFD /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7CB7B97024FE78B800352BFD /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7CB7B97424FE78BA00352BFD /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7CB7B97524FE78BA00352BFD /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -644,6 +763,47 @@
 			};
 			name = Release;
 		};
+		7CB7B97824FE78BA00352BFD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = 004_TgaTexture/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.zsq.-04-TgaTexture";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "004_TgaTexture/Render/004_TgaTexture-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7CB7B97924FE78BA00352BFD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = 004_TgaTexture/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.zsq.-04-TgaTexture";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "004_TgaTexture/Render/004_TgaTexture-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -679,6 +839,15 @@
 			buildConfigurations = (
 				1BBCC7B424F8A418005FD640 /* Debug */,
 				1BBCC7B524F8A418005FD640 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7CB7B97A24FE78BA00352BFD /* Build configuration list for PBXNativeTarget "004_TgaTexture" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7CB7B97824FE78BA00352BFD /* Debug */,
+				7CB7B97924FE78BA00352BFD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
