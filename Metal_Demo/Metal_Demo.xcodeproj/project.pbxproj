@@ -30,6 +30,11 @@
 		1BBCC7B124F8A418005FD640 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BBCC7AF24F8A418005FD640 /* LaunchScreen.storyboard */; };
 		1BBCC7B824F8A44E005FD640 /* Render.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBCC7B724F8A44E005FD640 /* Render.swift */; };
 		1BBCC7BB24F8A46D005FD640 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 1BBCC7BA24F8A46D005FD640 /* Shaders.metal */; };
+		1BC0719224FF9E22004CCAF2 /* ZImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC0719124FF9E22004CCAF2 /* ZImage.m */; };
+		1BC0719724FFADEB004CCAF2 /* kun.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1BC0719524FFADEB004CCAF2 /* kun.jpg */; };
+		1BC0719824FFADEB004CCAF2 /* Image.tga in Resources */ = {isa = PBXBuildFile; fileRef = 1BC0719624FFADEB004CCAF2 /* Image.tga */; };
+		1BC0719B24FFAE17004CCAF2 /* natuo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1BC0719924FFAE17004CCAF2 /* natuo.jpg */; };
+		1BC0719C24FFAE17004CCAF2 /* nezha.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1BC0719A24FFAE17004CCAF2 /* nezha.jpg */; };
 		7CB7B96A24FE78B800352BFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB7B96924FE78B800352BFD /* AppDelegate.swift */; };
 		7CB7B96C24FE78B800352BFD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB7B96B24FE78B800352BFD /* SceneDelegate.swift */; };
 		7CB7B96E24FE78B800352BFD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB7B96D24FE78B800352BFD /* ViewController.swift */; };
@@ -38,7 +43,6 @@
 		7CB7B97624FE78BA00352BFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CB7B97424FE78BA00352BFD /* LaunchScreen.storyboard */; };
 		7CB7B97D24FE794D00352BFD /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 7CB7B97C24FE794D00352BFD /* Shaders.metal */; };
 		7CB7B98424FE87DE00352BFD /* Render.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB7B98324FE87DE00352BFD /* Render.swift */; };
-		7CB7B98624FE9D4800352BFD /* ZImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB7B98524FE9D4800352BFD /* ZImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +79,12 @@
 		1BBCC7B924F8A461005FD640 /* ShaderTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShaderTypes.h; sourceTree = "<group>"; };
 		1BBCC7BA24F8A46D005FD640 /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
 		1BC0717624FCF633004CCAF2 /* 003_BaseBuffer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "003_BaseBuffer-Bridging-Header.h"; sourceTree = "<group>"; };
+		1BC0719024FF9E22004CCAF2 /* ZImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZImage.h; sourceTree = "<group>"; };
+		1BC0719124FF9E22004CCAF2 /* ZImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZImage.m; sourceTree = "<group>"; };
+		1BC0719524FFADEB004CCAF2 /* kun.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kun.jpg; sourceTree = "<group>"; };
+		1BC0719624FFADEB004CCAF2 /* Image.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = Image.tga; sourceTree = "<group>"; };
+		1BC0719924FFAE17004CCAF2 /* natuo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = natuo.jpg; sourceTree = "<group>"; };
+		1BC0719A24FFAE17004CCAF2 /* nezha.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = nezha.jpg; sourceTree = "<group>"; };
 		7CB7B96724FE78B800352BFD /* 004_TgaTexture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 004_TgaTexture.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CB7B96924FE78B800352BFD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7CB7B96B24FE78B800352BFD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,7 +97,6 @@
 		7CB7B97E24FE796A00352BFD /* ShaderTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShaderTypes.h; sourceTree = "<group>"; };
 		7CB7B97F24FE798800352BFD /* 004_TgaTexture-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "004_TgaTexture-Bridging-Header.h"; sourceTree = "<group>"; };
 		7CB7B98324FE87DE00352BFD /* Render.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Render.swift; sourceTree = "<group>"; };
-		7CB7B98524FE9D4800352BFD /* ZImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +226,10 @@
 				7CB7B96924FE78B800352BFD /* AppDelegate.swift */,
 				7CB7B96B24FE78B800352BFD /* SceneDelegate.swift */,
 				7CB7B96D24FE78B800352BFD /* ViewController.swift */,
+				1BC0719624FFADEB004CCAF2 /* Image.tga */,
+				1BC0719524FFADEB004CCAF2 /* kun.jpg */,
+				1BC0719924FFAE17004CCAF2 /* natuo.jpg */,
+				1BC0719A24FFAE17004CCAF2 /* nezha.jpg */,
 				7CB7B97B24FE791000352BFD /* Render */,
 				7CB7B96F24FE78B800352BFD /* Main.storyboard */,
 				7CB7B97224FE78BA00352BFD /* Assets.xcassets */,
@@ -231,9 +244,10 @@
 			children = (
 				7CB7B98324FE87DE00352BFD /* Render.swift */,
 				7CB7B97C24FE794D00352BFD /* Shaders.metal */,
-				7CB7B98524FE9D4800352BFD /* ZImage.swift */,
 				7CB7B97E24FE796A00352BFD /* ShaderTypes.h */,
 				7CB7B97F24FE798800352BFD /* 004_TgaTexture-Bridging-Header.h */,
+				1BC0719024FF9E22004CCAF2 /* ZImage.h */,
+				1BC0719124FF9E22004CCAF2 /* ZImage.m */,
 			);
 			path = Render;
 			sourceTree = "<group>";
@@ -392,9 +406,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BC0719724FFADEB004CCAF2 /* kun.jpg in Resources */,
 				7CB7B97624FE78BA00352BFD /* LaunchScreen.storyboard in Resources */,
+				1BC0719C24FFAE17004CCAF2 /* nezha.jpg in Resources */,
 				7CB7B97324FE78BA00352BFD /* Assets.xcassets in Resources */,
+				1BC0719B24FFAE17004CCAF2 /* natuo.jpg in Resources */,
 				7CB7B97124FE78B800352BFD /* Main.storyboard in Resources */,
+				1BC0719824FFADEB004CCAF2 /* Image.tga in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,7 +462,7 @@
 				7CB7B97D24FE794D00352BFD /* Shaders.metal in Sources */,
 				7CB7B96E24FE78B800352BFD /* ViewController.swift in Sources */,
 				7CB7B96A24FE78B800352BFD /* AppDelegate.swift in Sources */,
-				7CB7B98624FE9D4800352BFD /* ZImage.swift in Sources */,
+				1BC0719224FF9E22004CCAF2 /* ZImage.m in Sources */,
 				7CB7B96C24FE78B800352BFD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

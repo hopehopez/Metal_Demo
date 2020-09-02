@@ -14,14 +14,14 @@ using namespace metal;
 // 顶点着色器输出和片段着色器输入
 //结构体
 typedef struct {
-    float4 clipSpacePosition [[positon]];
+    float4 clipSpacePosition [[position]];
     float2 textureCoordinate;
 } RasterizerData;
 
 //顶点着色函数
 vertex RasterizerData vertexShader(uint vertexID [[vertex_id]],
                                    constant ZVertex *vertices [[buffer(ZVertexInputVertices)]],
-                                   constant vertor_float2 *viewportSizePointer [[buffer(ZVertexInputIndexv)]]){
+                                   constant vector_float2 *viewportSizePointer [[buffer(ZVertexInputViewportSize)]]){
     /*
         处理顶点数据:
         1) 执行坐标系转换,将生成的顶点剪辑空间写入到返回值中.
@@ -32,7 +32,7 @@ vertex RasterizerData vertexShader(uint vertexID [[vertex_id]],
     RasterizerData out;
     
     //初始化输出剪辑空间位置
-    out.clipSpacePosition = vector_float4(0.0, 0.0, 0.0, 1.0)
+    out.clipSpacePosition = vector_float4(0.0, 0.0, 0.0, 1.0);
     
     // 索引到我们的数组位置以获得当前顶点
     // 我们的位置是在像素维度中指定的.
@@ -67,7 +67,7 @@ fragment float4 fragmentShader(RasterizerData in [[stage_in]],
     constexpr sampler textureSampler(mag_filter::linear,
                                      min_filter::linear);
     
-    const half4 colorSampler = colorTexture.sample(textureSampler, in.textureCoordinate)
+    const half4 colorSampler = colorTexture.sample(textureSampler, in.textureCoordinate);
     
-    return float4(colorSampler)
+    return float4(colorSampler);
 }

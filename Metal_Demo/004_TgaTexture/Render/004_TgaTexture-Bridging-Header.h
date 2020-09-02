@@ -4,3 +4,4 @@
 
 
 #import "ShaderTypes.h"
+#import "ZImage.h"

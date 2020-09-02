@@ -52,7 +52,7 @@ class Render: NSObject, MTKViewDelegate {
          //5.获取顶点数据
         let verteices = generateVertexData()
         //创建一个vertex buffer,可以由GPU来读取
-        vertexBuffer = device?.makeBuffer(bytes: verteices, length: MemoryLayout<ZVertex>.size*verteices.count, options: .cpuCacheModeWriteCombined)
+        vertexBuffer = device?.makeBuffer(bytes: verteices, length: MemoryLayout<ZVertex>.size*verteices.count, options: [])
         
         numVertices = verteices.count
         
