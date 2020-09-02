@@ -40,8 +40,8 @@ class Render: NSObject, MTKViewDelegate {
         setupPipeline()
         
         //4.加载纹理TGA 文件
-        setupTexture()
-        
+//        setupTexture()
+        setupTexturePNG()
     }
     
     func setupVertex() {
@@ -124,6 +124,77 @@ class Render: NSObject, MTKViewDelegate {
         //4.复制图片数据到texture
         texture?.replace(region: region, mipmapLevel: 0, withBytes: [UInt8](image.data), bytesPerRow: Int(bytesPerRow))
         
+    }
+    
+    func setupTexturePNG() {
+        //1.获取图片
+        guard let image = UIImage(named: "natuo.jpg") else {
+            return
+        }
+        
+        //2.纹理描述符
+        let textureDescriptor = MTLTextureDescriptor()
+        //表示每个像素有蓝色,绿色,红色和alpha通道.其中每个通道都是8位无符号归一化的值.(即0映射成0,255映射成1);
+        textureDescriptor.pixelFormat = MTLPixelFormat.rgba8Unorm
+        //设置纹理的像素尺寸
+        textureDescriptor.width = Int(image.size.width)
+        textureDescriptor.height = Int(image.size.height)
+        
+        //3.使用描述符从设备中创建纹理
+        texture = device?.makeTexture(descriptor: textureDescriptor)
+        
+        /*
+         typedef struct
+         {
+         MTLOrigin origin; //开始位置x,y,z
+         MTLSize   size; //尺寸width,height,depth
+         } MTLRegion;
+         */
+        //MLRegion结构用于标识纹理的特定区域。 demo使用图像数据填充整个纹理；因此，覆盖整个纹理的像素区域等于纹理的尺寸。
+        //4. 创建MTLRegion 结构体  [纹理上传的范围]
+        let region = MTLRegion(origin: MTLOrigin(x: 0, y: 0, z: 0), size: MTLSize(width: textureDescriptor.width, height: textureDescriptor.height, depth: 1))
+        
+        //5.获取图片数据
+        guard let bytes = loadImage(image: image) else {
+            return
+        }
+        
+        //6.UIImage的数据需要转成二进制才能上传，且不用jpg、png的NSData
+        texture?.replace(region: region, mipmapLevel: 0, withBytes: bytes, bytesPerRow: textureDescriptor.width*4)
+        
+        free(bytes)
+    }
+    
+    //从UIImage 中读取Byte 数据返回
+    func loadImage(image: UIImage) -> UnsafeMutablePointer<GLubyte>? {
+        // 1.获取图片的CGImageRef
+        guard let spriteImage = image.cgImage else {
+            return nil
+        }
+        
+        // 2.读取图片的大小
+        let width = spriteImage.width
+        let height = spriteImage.height
+        
+        //3.计算图片大小.rgba共4个byte
+        let spriteData = UnsafeMutablePointer<GLubyte>.allocate(capacity: MemoryLayout<GLubyte>.size*width*height*4)
+        
+        UIGraphicsBeginImageContext(CGSize(width: width, height: height))
+        
+        //4.创建画布
+        let spriteContext = CGContext(data: spriteData, width: width, height: height, bitsPerComponent: 8, bytesPerRow: width*4, space: spriteImage.colorSpace!, bitmapInfo: spriteImage.bitmapInfo.rawValue)
+        
+        //5.翻转
+        spriteContext?.translateBy(x: 0, y: CGFloat(height))
+        spriteContext?.scaleBy(x: 1, y: -1)
+        
+        //5.在CGContextRef上绘图
+        spriteContext?.draw(spriteImage, in: CGRect(x: 0, y: 0, width: width, height: height))
+        
+        UIGraphicsEndImageContext()
+        
+        
+        return spriteData
     }
     
     //每当视图改变方向或调整大小时调用
