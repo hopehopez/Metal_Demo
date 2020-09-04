@@ -22,7 +22,6 @@ typedef enum ZVertexInputIndex{
 //纹理索引
 typedef enum ZTextureIndex{
     ZTextureIndexBaseColor = 0,
-    
 }ZTextureIndex;
 
 //结构体: 顶点/纹理坐标
