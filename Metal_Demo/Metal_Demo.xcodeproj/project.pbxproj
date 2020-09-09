@@ -13,6 +13,10 @@
 		1B3D16F22507863300DA6D60 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B3D16F02507863300DA6D60 /* Main.storyboard */; };
 		1B3D16F42507863800DA6D60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B3D16F32507863800DA6D60 /* Assets.xcassets */; };
 		1B3D16F72507863800DA6D60 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B3D16F52507863800DA6D60 /* LaunchScreen.storyboard */; };
+		1B3D170425088F0400DA6D60 /* ZShaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 1B3D170325088F0400DA6D60 /* ZShaders.metal */; };
+		1B3D17072508AB8400DA6D60 /* kun.mov in Resources */ = {isa = PBXBuildFile; fileRef = 1B3D17052508AB8400DA6D60 /* kun.mov */; };
+		1B3D17082508AB8400DA6D60 /* kun2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1B3D17062508AB8400DA6D60 /* kun2.mp4 */; };
+		1B3D170A2508ADDF00DA6D60 /* ZAssetReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3D17092508ADDF00DA6D60 /* ZAssetReader.swift */; };
 		1B60473224EE78230000E2FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B60473124EE78230000E2FF /* AppDelegate.swift */; };
 		1B60473424EE78230000E2FF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B60473324EE78230000E2FF /* SceneDelegate.swift */; };
 		1B60473624EE78230000E2FF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B60473524EE78230000E2FF /* ViewController.swift */; };
@@ -66,6 +70,12 @@
 		1B3D16F32507863800DA6D60 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1B3D16F62507863800DA6D60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1B3D16F82507863800DA6D60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1B3D16FE25088B9800DA6D60 /* 006_RenderMOV-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "006_RenderMOV-Bridging-Header.h"; sourceTree = "<group>"; };
+		1B3D170225088BDA00DA6D60 /* ZShaderTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZShaderTypes.h; sourceTree = "<group>"; };
+		1B3D170325088F0400DA6D60 /* ZShaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = ZShaders.metal; sourceTree = "<group>"; };
+		1B3D17052508AB8400DA6D60 /* kun.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = kun.mov; sourceTree = "<group>"; };
+		1B3D17062508AB8400DA6D60 /* kun2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = kun2.mp4; sourceTree = "<group>"; };
+		1B3D17092508ADDF00DA6D60 /* ZAssetReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZAssetReader.swift; sourceTree = "<group>"; };
 		1B60472F24EE78230000E2FF /* 001_Color.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 001_Color.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B60473124EE78230000E2FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1B60473324EE78230000E2FF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -176,13 +186,19 @@
 		1B3D16E92507863300DA6D60 /* 006_RenderMOV */ = {
 			isa = PBXGroup;
 			children = (
+				1B3D17052508AB8400DA6D60 /* kun.mov */,
+				1B3D17062508AB8400DA6D60 /* kun2.mp4 */,
 				1B3D16EA2507863300DA6D60 /* AppDelegate.swift */,
 				1B3D16EC2507863300DA6D60 /* SceneDelegate.swift */,
 				1B3D16EE2507863300DA6D60 /* ViewController.swift */,
+				1B3D17092508ADDF00DA6D60 /* ZAssetReader.swift */,
+				1B3D170225088BDA00DA6D60 /* ZShaderTypes.h */,
+				1B3D170325088F0400DA6D60 /* ZShaders.metal */,
 				1B3D16F02507863300DA6D60 /* Main.storyboard */,
 				1B3D16F32507863800DA6D60 /* Assets.xcassets */,
 				1B3D16F52507863800DA6D60 /* LaunchScreen.storyboard */,
 				1B3D16F82507863800DA6D60 /* Info.plist */,
+				1B3D16FE25088B9800DA6D60 /* 006_RenderMOV-Bridging-Header.h */,
 			);
 			path = 006_RenderMOV;
 			sourceTree = "<group>";
@@ -443,6 +459,7 @@
 				TargetAttributes = {
 					1B3D16E72507863300DA6D60 = {
 						CreatedOnToolsVersion = 11.6;
+						LastSwiftMigration = 1160;
 					};
 					1B60472E24EE78230000E2FF = {
 						CreatedOnToolsVersion = 11.6;
@@ -493,7 +510,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B3D16F72507863800DA6D60 /* LaunchScreen.storyboard in Resources */,
+				1B3D17072508AB8400DA6D60 /* kun.mov in Resources */,
 				1B3D16F42507863800DA6D60 /* Assets.xcassets in Resources */,
+				1B3D17082508AB8400DA6D60 /* kun2.mp4 in Resources */,
 				1B3D16F22507863300DA6D60 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -562,6 +581,8 @@
 				1B3D16EF2507863300DA6D60 /* ViewController.swift in Sources */,
 				1B3D16EB2507863300DA6D60 /* AppDelegate.swift in Sources */,
 				1B3D16ED2507863300DA6D60 /* SceneDelegate.swift in Sources */,
+				1B3D170A2508ADDF00DA6D60 /* ZAssetReader.swift in Sources */,
+				1B3D170425088F0400DA6D60 /* ZShaders.metal in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -729,15 +750,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 87G4VVJARE;
 				INFOPLIST_FILE = 006_RenderMOV/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.zsq.-06-RenderMOV";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jiuyueqiji.-06-RenderMOV";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "006_RenderMOV/006_RenderMOV-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -747,15 +772,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 87G4VVJARE;
 				INFOPLIST_FILE = 006_RenderMOV/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.zsq.-06-RenderMOV";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jiuyueqiji.-06-RenderMOV";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "006_RenderMOV/006_RenderMOV-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
