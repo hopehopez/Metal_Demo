@@ -64,6 +64,7 @@ class ViewController: UIViewController, MTKViewDelegate {
     func setupAssetReader() {
         //1.视频文件路径
         guard let url = Bundle.main.url(forResource: "kun", withExtension: "mov") else {return}
+//        guard let url = Bundle.main.url(forResource: "kun2", withExtension: "mp4") else {return}
         
         //2.初始化ZAssetReader
         reader = ZAssetReader(url: url)
@@ -103,13 +104,14 @@ class ViewController: UIViewController, MTKViewDelegate {
     func setupVertex() {
         //1.顶点坐标(x,y,z,w);纹理坐标(x,y)
         //注意: 为了让视频全屏铺满,所以顶点大小均设置[-1,1]
-        let quadVertices = [ZVertex(position: [1.0, -1.0, 0.0, 1.0], textureCoordinate: [1.0, 1.0]),
-        ZVertex(position: [-1.0, -1.0, 0.0, 1.0], textureCoordinate: [0.0, 1.0]),
-        ZVertex(position: [-1.0, 1.0, 0.0, 1.0], textureCoordinate: [1.0, 1.0]),
+        let quadVertices = [
+            ZVertex(position: [1.0, -1.0, 0.0, 1.0], textureCoordinate: [1.0, 1.0]),
+            ZVertex(position: [-1.0, -1.0, 0.0, 1.0], textureCoordinate: [0.0, 1.0]),
+            ZVertex(position: [-1.0, 1.0, 0.0, 1.0], textureCoordinate: [0.0, 0.0]),
         
-        ZVertex(position: [1.0, -1.0, 0.0, 1.0], textureCoordinate: [1.0, 1.0]),
-        ZVertex(position: [-1.0, 1.0, 0.0, 1.0], textureCoordinate: [0.0, 0.0]),
-        ZVertex(position: [1.0, 1.0, 0.0, 1.0], textureCoordinate: [1.0, 0.0])]
+            ZVertex(position: [1.0, -1.0, 0.0, 1.0], textureCoordinate: [1.0, 1.0]),
+            ZVertex(position: [-1.0, 1.0, 0.0, 1.0], textureCoordinate: [0.0, 0.0]),
+            ZVertex(position: [1.0, 1.0, 0.0, 1.0], textureCoordinate: [1.0, 0.0])]
         
         //2.创建顶点缓存区
         vertices = mtkView.device?.makeBuffer(bytes: quadVertices, length: MemoryLayout<ZVertex>.size*quadVertices.count, options: .storageModeShared)
@@ -133,7 +135,7 @@ class ViewController: UIViewController, MTKViewDelegate {
             simd_float3(1.0,    1.0,    1.0),
             simd_float3(0.0,    -0.343, 1.765),
             simd_float3(1.4,    -0.711, 0.0)))
-        
+       
         // BT.709, which is the standard for HDTV.
         let kColorConversion709DefaultMatrix = matrix_float3x3(columns: (
             simd_float3(1.164,  1.164, 1.164),
@@ -208,14 +210,13 @@ class ViewController: UIViewController, MTKViewDelegate {
                 textureY = CVMetalTextureGetTexture(texture)
             }
             //9.textureUV 设置(同理,参考于textureY 设置)
-        
             let width2 = CVPixelBufferGetWidthOfPlane(pixelBuffer, 1)
             let height2 = CVPixelBufferGetHeightOfPlane(pixelBuffer, 1)
             
-            
+            let pixelFormat2 = MTLPixelFormat.rg8Unorm
             var texture2: CVMetalTexture!
             
-            let status2 = CVMetalTextureCacheCreateTextureFromImage(nil, textureCache, pixelBuffer, nil, pixelFormat, width2, height2, 1, &texture2)
+            let status2 = CVMetalTextureCacheCreateTextureFromImage(nil, textureCache, pixelBuffer, nil, pixelFormat2, width2, height2, 1, &texture2)
             
             if status2 == kCVReturnSuccess {
                 textureUV = CVMetalTextureGetTexture(texture2)
@@ -245,7 +246,7 @@ class ViewController: UIViewController, MTKViewDelegate {
         //3.判断renderPassDescriptor 和 sampleBuffer 是否已经获取到了?
         if let renderPassDescriptor = view.currentRenderPassDescriptor, let samperBuffer = reader.readBuffer() {
             //4.设置renderPassDescriptor中颜色附着(默认背景色)
-            renderPassDescriptor.colorAttachments[0].clearColor = MTLClearColorMake(0.0, 0.5, 0.5, 1.0)
+//            renderPassDescriptor.colorAttachments[0].clearColor = MTLClearColorMake(0.0, 0.5, 0.5, 1.0)
             
             //5.根据渲染描述信息创建渲染命令编码器
             let renderEncoder = commandBuffer?.makeRenderCommandEncoder(descriptor: renderPassDescriptor)
