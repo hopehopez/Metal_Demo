@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B02284A2509D8DF00054899 /* baozha.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1B0228492509D8DF00054899 /* baozha.mp4 */; };
 		1B3D16EB2507863300DA6D60 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3D16EA2507863300DA6D60 /* AppDelegate.swift */; };
 		1B3D16ED2507863300DA6D60 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3D16EC2507863300DA6D60 /* SceneDelegate.swift */; };
 		1B3D16EF2507863300DA6D60 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3D16EE2507863300DA6D60 /* ViewController.swift */; };
@@ -62,6 +63,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B0228492509D8DF00054899 /* baozha.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = baozha.mp4; sourceTree = "<group>"; };
 		1B3D16E82507863300DA6D60 /* 006_RenderMOV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 006_RenderMOV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B3D16EA2507863300DA6D60 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1B3D16EC2507863300DA6D60 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 			children = (
 				1B3D17052508AB8400DA6D60 /* kun.mov */,
 				1B3D17062508AB8400DA6D60 /* kun2.mp4 */,
+				1B0228492509D8DF00054899 /* baozha.mp4 */,
 				1B3D16EA2507863300DA6D60 /* AppDelegate.swift */,
 				1B3D16EC2507863300DA6D60 /* SceneDelegate.swift */,
 				1B3D16EE2507863300DA6D60 /* ViewController.swift */,
@@ -509,6 +512,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B02284A2509D8DF00054899 /* baozha.mp4 in Resources */,
 				1B3D16F72507863800DA6D60 /* LaunchScreen.storyboard in Resources */,
 				1B3D17072508AB8400DA6D60 /* kun.mov in Resources */,
 				1B3D16F42507863800DA6D60 /* Assets.xcassets in Resources */,

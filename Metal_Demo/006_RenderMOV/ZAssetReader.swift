@@ -66,7 +66,7 @@ class ZAssetReader: NSObject {
         
         //1.创建AVAssetReader
         assetReader = try! AVAssetReader(asset: asset)
-        
+
         //2.kCVPixelBufferPixelFormatTypeKey 像素格式.
         /*
          kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange : 420v
@@ -114,6 +114,7 @@ class ZAssetReader: NSObject {
         
         //2.判断assetReader 并且status 是已经完成读取 则重新清空readerVideoTrackOutput/assetReader.并重新初始化它们
         if assetReader != nil && assetReader.status == AVAssetReader.Status.completed {
+            print(Date().timeIntervalSince1970)
             print("customInit")
             readerVideoTrackOutput = nil
             assetReader = nil
